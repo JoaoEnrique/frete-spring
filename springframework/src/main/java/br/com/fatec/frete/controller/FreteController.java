@@ -22,6 +22,12 @@ public class FreteController {
         this.service = service;
     }
 
+    @ResponseStatus(HttpStatus.OK)
+    @GetMapping("{id}")
+    public FreteResponse find(@PathVariable("id") String id) {
+        return FreteControllerAdapter.cast(repository.findById(id));
+    }
+
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("")
     public FreteResponse save(@Validated @RequestBody FreteRequest request) {
