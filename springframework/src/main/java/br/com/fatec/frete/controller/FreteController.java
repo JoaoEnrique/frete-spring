@@ -11,7 +11,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/frete/v1")
+@RequestMapping("/api/v1/frete")
 public class FreteController {
 //    private final FreteRepository repository;
     private final FreteService service;

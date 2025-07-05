@@ -1,11 +1,5 @@
 package br.com.fatec.frete.controller.adapter;
 
-// import br.com.fatec.frete.controller.dto.request.UserRequest;
-// import br.com.fatec.frete.controller.dto.response.EnderecoResponse;
-// import br.com.fatec.frete.controller.dto.response.UserResponse;
-// import br.com.fatec.frete.entity.Endereco;
-// import br.com.fatec.frete.entity.User;
-
 import java.util.UUID;
 
 import br.com.fatec.frete.controller.dto.request.FreteRequest;
