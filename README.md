@@ -29,13 +29,6 @@ Response
 
 Busca dados do frete pelo ID
 
-Body
-```json
-{
-    "id": "string"
-}
-```
-
 Response
 ```json
 {
@@ -51,13 +44,6 @@ Response
 ## `GET /api/v1/frete/{id}`
 
 Busca dados de todos os fretes de um usuário
-
-Body
-```json
-{
-    "idUser": "string"
-}
-```
 
 Response
 ```json
