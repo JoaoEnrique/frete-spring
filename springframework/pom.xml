@@ -91,6 +91,23 @@
             <scope>test</scope>
         </dependency>
         <!-- TEST -->
+
+        <!-- SWAGGER -->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-boot-starter</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+            <version>2.3.0</version>
+        </dependency>
+
+
+        <!-- SWAGGER -->
+
     </dependencies>
 
     <dependencyManagement>
@@ -116,10 +133,9 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.11.0</version>
                 <configuration>
-                    <source>17</source>
-                    <target>17</target>
-                    <compilerArgs>
-                        <arg>-parameters</arg>
+                    <source>21</source>
+                    <target>21</target>
+                    <compilerArgs>--enable-preview
                     </compilerArgs>
                 </configuration>
             </plugin>

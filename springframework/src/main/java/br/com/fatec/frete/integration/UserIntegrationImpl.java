@@ -1,5 +1,6 @@
 package br.com.fatec.frete.integration;
 
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.retry.annotation.Backoff;
 import org.springframework.retry.annotation.Retryable;
 import br.com.fatec.frete.entity.User;
@@ -17,7 +18,7 @@ public class UserIntegrationImpl implements UserIntegration {
         }
 
         @Retryable(maxAttempts = 4, backoff = @Backoff(delay = 1000))
-//        @Cacheable(value = "user-cache", key = "#p0")
+        @Cacheable(value = "user-cache", key = "#p0")
         public User getUser(final String idUser) {
                 UserResponse response = integration.getUser(idUser);
                 return UserIntegrationAdapter.cast(response);
