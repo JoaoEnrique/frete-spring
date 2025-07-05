@@ -1,7 +1,6 @@
 package br.com.fatec.frete.controller.adapter;
 
 import java.util.UUID;
-
 import br.com.fatec.frete.controller.dto.request.FreteRequest;
 import br.com.fatec.frete.controller.dto.response.FreteResponse;
 import br.com.fatec.frete.entity.Frete;

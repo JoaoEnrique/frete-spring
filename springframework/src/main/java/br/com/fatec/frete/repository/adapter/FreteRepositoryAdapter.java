@@ -3,6 +3,9 @@ package br.com.fatec.frete.repository.adapter;
 import br.com.fatec.frete.entity.Frete;
 import br.com.fatec.frete.repository.orm.FreteOrm;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class FreteRepositoryAdapter {
     private FreteRepositoryAdapter() {
     }
@@ -23,5 +26,11 @@ public class FreteRepositoryAdapter {
                 orm.status(),
                 orm.valor()
         );
+    }
+
+    public static List<Frete> cast(List<FreteOrm> orms) {
+        return orms.stream()
+                .map(FreteRepositoryAdapter::cast)
+                .collect(Collectors.toList());
     }
 }

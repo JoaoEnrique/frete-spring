@@ -11,6 +11,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/v1/frete")
 public class FreteController {
@@ -33,5 +35,11 @@ public class FreteController {
     public FreteResponse save(@Validated @RequestBody FreteRequest request) {
         Frete frete = FreteControllerAdapter.cast(request);
         return FreteControllerAdapter.cast(service.register(frete));
+    }
+
+    @ResponseStatus(HttpStatus.OK)
+    @GetMapping("/by-iduser/{idUser}")
+    public List<Frete> findByIdUser(@PathVariable("idUser") String idUser) {
+        return repository.findByIdUser(idUser);
     }
 }

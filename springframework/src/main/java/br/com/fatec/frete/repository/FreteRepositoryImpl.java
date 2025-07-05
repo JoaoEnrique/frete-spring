@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
 
 @Repository
@@ -28,8 +29,7 @@ public class FreteRepositoryImpl implements FreteRepository {
             FreteOrm orm = FreteRepositoryAdapter.cast(frete);
             return FreteRepositoryAdapter.cast(repository.save(orm));
         } catch (Exception ex) {
-            LOG.error("Erro ao salvar usuario: {} o erro aconteceu na data/hora: {}",
-                    ex.getMessage(), LocalDateTime.now());
+            LOG.error("Erro ao salvar frete: {} o erro aconteceu na data/hora: {}", ex.getMessage(), LocalDateTime.now());
             throw new InternalServerException(ex);
         }
     }
@@ -45,8 +45,25 @@ public class FreteRepositoryImpl implements FreteRepository {
         } catch (NotFoundException ex) {
             throw ex;
         } catch (Exception ex) {
-            LOG.error("Erro ao procurar usuario por id: {} o erro aconteceu na data/hora: {}",
-                    ex.getMessage(), LocalDateTime.now());
+            LOG.error("Erro ao procurar frete por id: {} o erro aconteceu na data/hora: {}", ex.getMessage(), LocalDateTime.now());
+            throw new InternalServerException(ex);
+        }
+    }
+
+    @Override
+    public List<Frete> findByIdUser(final String idUser) {
+        try {
+            List<FreteOrm> fretesOrm  = repository.findByIdUser(idUser);
+
+            if (fretesOrm.isEmpty()) {
+                throw new NotFoundException("Nenhum frete encontrado para o usuário: " + idUser);
+            }
+
+            return FreteRepositoryAdapter.cast(fretesOrm);
+        } catch (NotFoundException ex) {
+            throw ex;
+        } catch (Exception ex) {
+            LOG.error("Erro ao procurar fre por id do usuario: {} o erro aconteceu na data/hora: {}", ex.getMessage(), LocalDateTime.now());
             throw new InternalServerException(ex);
         }
     }
