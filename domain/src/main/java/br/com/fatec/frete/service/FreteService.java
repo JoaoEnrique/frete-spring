@@ -44,7 +44,8 @@ public class FreteService {
                 throw new BadRequestException("O usuário não tem estado cadastrado");
             }
 
-            String valorFrete = FreteCalculator.calcularValorFrete(user.endereco().uf());
+            FreteCalculator freteCalculator = new FreteCalculator();
+            String valorFrete = freteCalculator.calcularValorFrete(user.endereco().uf());
             Frete newFrete = new Frete(id, frete.idUser(), StatusFrete.PROCESSANDO, valorFrete);
 
             return repository.save(newFrete);
