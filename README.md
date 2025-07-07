@@ -2,13 +2,32 @@ API para calculo de frete.
 
 Essa API consome a API https://github.com/JoaoEnrique/spring-boot-pokemon na branch `feature-frete` 
 
-Tecnologias
+## Tecnologias
 - Spring Boot — Framework para desenvolvimento de aplicações Java modernas, rápidas e robustas.
 - MongoDB — Banco de dados NoSQL orientado a documentos.
 - Redis — Armazenamento em cache em memória.
 - Docker — Contêineres para facilitar a configuração, o empacotamento e a execução da aplicação em diferentes ambientes.
 
-#
+## Requisitos
+- Java 17
+- Docker
+
+## Como executar
+1. Clonar
+```
+git clone https://github.com/JoaoEnrique/frete-spring.git
+```
+
+2. Execute o Docker Compose:
+```
+docker-compose up --build
+```
+
+3. Execute o FreteApplication.java 
+
+
+
+## Documentação
 ## `POST /api/v1/frete`
 Buca um usuário por ID, calcula o frete com o estado já cadastrado no usuário e salva o dado do frete no Banco
 
