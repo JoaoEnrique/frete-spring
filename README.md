@@ -2,10 +2,15 @@ API para calculo de frete.
 
 Essa API consome a API https://github.com/JoaoEnrique/spring-boot-pokemon na branch `feature-frete` 
 
+Tecnologias
+- Spring Boot — Framework para desenvolvimento de aplicações Java modernas, rápidas e robustas.
+- MongoDB — Banco de dados NoSQL orientado a documentos.
+- Redis — Armazenamento em cache em memória.
+- Docker — Contêineres para facilitar a configuração, o empacotamento e a execução da aplicação em diferentes ambientes.
+
 #
 ## `POST /api/v1/frete`
-
-Busca usuário por ID e calcula frete pelo estado retornado pela API
+Buca um usuário por ID, calcula o frete com o estado já cadastrado no usuário e salva o dado do frete no Banco
 
 Body
 ```json
